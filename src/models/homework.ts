@@ -2,6 +2,7 @@ interface IHomework {
   id: string;
   course: string;
   teacher: {
+    id: string;
     name: string;
   };
   title: string;

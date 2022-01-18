@@ -33,7 +33,7 @@ const LoginPage: React.FC<Props> = () => {
         }
         setUser(loggedInUser);
         message.success(`Welcome ${loggedInUser.name}`);
-        navigate("/home");
+        navigate("/homeworks");
         setLoading(false);
       } else {
         message.error("Invalid Credentials");

@@ -7,8 +7,12 @@ import Login from "./pages/login/index";
 import IUser from "./models/user";
 import "antd/dist/antd.css";
 
-const HomeworksPage = lazy(() => import("./pages/Homeworks"));
-const TeachersPage = lazy(() => import("./pages/Teachers"));
+//Principle
+const HomeworksPage = lazy(() => import("./pages/Principle/Homeworks"));
+const TeachersPage = lazy(() => import("./pages/Principle/Teachers"));
+
+//Teacher
+const TeacherHomeworksPage = lazy(() => import("./pages/Teacher/Homeworks"));
 
 function App() {
   const [user, setUser] = useState<null | IUser>(null);
@@ -35,7 +39,16 @@ function App() {
                 <Content>
                   <Routes>
                     <Route path='/home' element={<div>Home Page</div>} />
-                    <Route path='/homeworks' element={<HomeworksPage />} />
+                    <Route
+                      path='/homeworks'
+                      element={
+                        user.type === "Principle" ? (
+                          <HomeworksPage />
+                        ) : (
+                          <TeacherHomeworksPage />
+                        )
+                      }
+                    />
                     <Route path='/teachers' element={<TeachersPage />} />
                   </Routes>
                 </Content>

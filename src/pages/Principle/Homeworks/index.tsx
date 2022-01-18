@@ -1,6 +1,6 @@
-import { homeworks } from "../../dummy/index";
+import { homeworks } from "../../../dummy/index";
 import { Row, Col } from "antd";
-import HomeworkCard from "../../components/Cards/HomeworkCard";
+import HomeworkCard from "../../../components/Cards/HomeworkCard";
 import styles from "./styles.module.scss";
 
 const HomeworksPage = () => {

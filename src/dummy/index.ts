@@ -18,9 +18,9 @@ const users: IUser[] = [
     password: "student1",
   },
   {
-    id: "h1",
+    id: "t1",
     type: "Teacher",
-    name: "Fadi Malek",
+    name: "Olubisi Runsewe",
     email: "teacher@one.com",
     password: "teacher1",
     students: [
@@ -28,6 +28,46 @@ const users: IUser[] = [
       { name: "Michael Doe" },
       { name: "George Doe" },
       { name: "Lucas Doe" },
+    ],
+    teachingCourse: "CSI2132",
+  },
+  {
+    id: "t2",
+    type: "Teacher",
+    name: "Miguel A. Garzón",
+    email: "teacher@two.com",
+    password: "teacher2",
+    students: [
+      { name: "John Doe" },
+      { name: "Michael Doe" },
+      { name: "George Doe" },
+      { name: "Lucas Doe" },
+    ],
+    teachingCourse: "CEG3585",
+  },
+  {
+    id: "t3",
+    type: "Teacher",
+    name: "Mohamed Ali Ibrahim",
+    email: "teacher@three.com",
+    password: "teacher3",
+    students: [
+      { name: "Michael Doe" },
+      { name: "George Doe" },
+      { name: "Lucas Doe" },
+    ],
+    teachingCourse: "CSI3504",
+  },
+  {
+    id: "t4",
+    type: "Teacher",
+    name: "Fadi Malek",
+    email: "teacher@four.com",
+    password: "teacher4",
+    students: [
+      { name: "John Doe" },
+      { name: "Michael Doe" },
+      { name: "George Doe" },
     ],
     teachingCourse: "CSI3531",
   },
@@ -37,7 +77,7 @@ const homeworks: IHomework[] = [
   {
     id: "hw1",
     course: "CSI2132",
-    teacher: { name: "Olubisi Runsewe" },
+    teacher: { id: "t1", name: "Olubisi Runsewe" },
     title: "Introduction to DBMS",
     createdDate: moment().subtract(1, "week").format("DD/MM/YYYY"),
     deadline: moment().add(1, "week").format("DD/MM/YYYY"),
@@ -46,7 +86,7 @@ const homeworks: IHomework[] = [
     submissions: [
       {
         studentName: "John Doe",
-        submissionDate: moment("dd/mm/yyyy").subtract(1, "day").toString(),
+        submissionDate: moment().subtract(1, "day").format("DD/MM/YYYY"),
       },
       {
         studentName: "Michael Doe",
@@ -65,7 +105,7 @@ const homeworks: IHomework[] = [
   {
     id: "hw2",
     course: "CEG3585",
-    teacher: { name: "Miguel A. Garzón" },
+    teacher: { id: "t2", name: "Miguel A. Garzón" },
     title: "Draw Network Layers",
     createdDate: moment().subtract(1, "week").format("DD/MM/YYYY"),
     deadline: moment().add(1, "week").format("DD/MM/YYYY"),
@@ -74,7 +114,7 @@ const homeworks: IHomework[] = [
     submissions: [
       {
         studentName: "John Doe",
-        submissionDate: moment("dd/mm/yyyy").subtract(1, "day").toString(),
+        submissionDate: moment().subtract(1, "day").format("DD/MM/YYYY"),
       },
       {
         studentName: "Michael Doe",
@@ -93,17 +133,13 @@ const homeworks: IHomework[] = [
   {
     id: "hw3",
     course: "CSI3504",
-    teacher: { name: "Mohamed Ali Ibrahim" },
+    teacher: { id: "t3", name: "Mohamed Ali Ibrahim" },
     title: "P Class vs NP Class",
     createdDate: moment().subtract(1, "week").format("DD/MM/YYYY"),
     deadline: moment().add(1, "week").format("DD/MM/YYYY"),
     description:
       "Write a detailed report on the difference between P Class and NP Class Write a detailed report on the difference between P Class and NP Class",
     submissions: [
-      {
-        studentName: "John Doe",
-        submissionDate: moment("dd/mm/yyyy").subtract(1, "day").toString(),
-      },
       {
         studentName: "Michael Doe",
         submissionDate: moment().subtract(1, "day").format("DD/MM/YYYY"),
@@ -121,7 +157,7 @@ const homeworks: IHomework[] = [
   {
     id: "hw4",
     course: "CSI3531",
-    teacher: { name: "Fadi Malek" },
+    teacher: { id: "t4", name: "Fadi Malek" },
     title: "Introduction to Operating Systems",
     createdDate: moment().subtract(1, "week").format("DD/MM/YYYY"),
     deadline: moment().add(1, "week").format("DD/MM/YYYY"),
@@ -130,7 +166,7 @@ const homeworks: IHomework[] = [
     submissions: [
       {
         studentName: "John Doe",
-        submissionDate: moment("dd/mm/yyyy").subtract(1, "day").toString(),
+        submissionDate: moment().subtract(1, "day").format("DD/MM/YYYY"),
       },
       {
         studentName: "Michael Doe",
@@ -138,10 +174,6 @@ const homeworks: IHomework[] = [
       },
       {
         studentName: "George Doe",
-        submissionDate: moment().subtract(1, "day").format("DD/MM/YYYY"),
-      },
-      {
-        studentName: "Lucas Doe",
         submissionDate: moment().subtract(1, "day").format("DD/MM/YYYY"),
       },
     ],

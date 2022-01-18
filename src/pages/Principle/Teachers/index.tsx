@@ -1,6 +1,6 @@
-import { teachers } from "../../dummy/index";
+import { teachers } from "../../../dummy/index";
 import { Row, Col } from "antd";
-import TeacherCard from "../../components/Cards/TeacherCard";
+import TeacherCard from "../../../components/Cards/TeacherCard";
 import styles from "./styles.module.scss";
 
 const TeachersPage = () => {

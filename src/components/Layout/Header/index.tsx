@@ -12,11 +12,7 @@ const NAVIGATION_ITEMS = {
     { route: "/teachers", label: "Teachers" },
     { route: "/homeworks", label: "Homeworks" },
   ],
-  Teacher: [
-    { route: "/teachers", label: "Teachers" },
-    { route: "/homeworks", label: "Homeworks" },
-    { route: "/create-homework", label: "Create Homework" },
-  ],
+  Teacher: [{ route: "/homeworks", label: "Homeworks" }],
   Student: [{ route: "/upload-homework", label: "Upload Homework" }],
 };
 
@@ -31,7 +27,7 @@ const AppHeader: React.FC = () => {
 
   return (
     <Header className={styles.header}>
-      <Menu theme='light' mode='horizontal' defaultSelectedKeys={["2"]}>
+      <Menu mode='horizontal'>
         {
           //@ts-ignore
           NAVIGATION_ITEMS[user.type]?.map(({ route, label }) => {
