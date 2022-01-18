@@ -8,6 +8,7 @@ import IUser from "./models/user";
 import "antd/dist/antd.css";
 
 const HomeworksPage = lazy(() => import("./pages/Homeworks"));
+const TeachersPage = lazy(() => import("./pages/Teachers"));
 
 function App() {
   const [user, setUser] = useState<null | IUser>(null);
@@ -35,6 +36,7 @@ function App() {
                   <Routes>
                     <Route path='/home' element={<div>Home Page</div>} />
                     <Route path='/homeworks' element={<HomeworksPage />} />
+                    <Route path='/teachers' element={<TeachersPage />} />
                   </Routes>
                 </Content>
               </Suspense>

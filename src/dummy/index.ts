@@ -17,6 +17,20 @@ const users: IUser[] = [
     email: "student@one.com",
     password: "student1",
   },
+  {
+    id: "h1",
+    type: "Teacher",
+    name: "Fadi Malek",
+    email: "teacher@one.com",
+    password: "teacher1",
+    students: [
+      { name: "John Doe" },
+      { name: "Michael Doe" },
+      { name: "George Doe" },
+      { name: "Lucas Doe" },
+    ],
+    teachingCourse: "CSI3531",
+  },
 ];
 
 const homeworks: IHomework[] = [
@@ -135,5 +149,7 @@ const homeworks: IHomework[] = [
 ];
 
 export { homeworks };
+
+export const teachers = users.filter(({ type }) => type === "Teacher");
 
 export default users;

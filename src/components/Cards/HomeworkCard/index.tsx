@@ -4,22 +4,11 @@ import { Card, Button } from "antd";
 import styles from "./styles.module.scss";
 import { UserOutlined } from "@ant-design/icons";
 import SubmissionsModal from "../../Modals/SubmissionsModal";
+import CardSection from "../CardSection";
 
 interface Props {
   homework: IHomework;
 }
-
-interface SectionProps {
-  title: string;
-  value: string;
-}
-
-const CardSection: React.FC<SectionProps> = ({ title, value }) => (
-  <p>
-    <b>{`${title}: `}</b>
-    {value}
-  </p>
-);
 
 const HomeworkCard: React.FC<Props> = ({ homework }) => {
   const { title, description, createdDate, deadline, teacher } = homework;
