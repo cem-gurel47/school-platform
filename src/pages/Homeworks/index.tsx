@@ -1,12 +1,20 @@
-import React from "react";
 import { homeworks } from "../../dummy/index";
 import { Row, Col } from "antd";
 import HomeworkCard from "../../components/Cards/HomeworkCard";
+import styles from "./styles.module.scss";
+
 const HomeworksPage = () => {
   return (
-    <Row>
+    <Row gutter={[16, 16]}>
       {homeworks.map((homework) => (
-        <Col key={homework.id} xs={24} sm={12} lg={8} xl={6}>
+        <Col
+          key={homework.id}
+          xs={24}
+          sm={12}
+          lg={8}
+          xl={6}
+          className={styles.column}
+        >
           <HomeworkCard homework={homework} />
         </Col>
       ))}

@@ -11,7 +11,6 @@ interface IHomework {
   submissions: {
     studentName: string;
     submissionDate: string;
-    submissionFile: File;
   }[];
 }
 

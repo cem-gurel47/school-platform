@@ -5,7 +5,6 @@ interface Props {
   submission: {
     studentName: string;
     submissionDate: string;
-    submissionFile: File;
   };
 }
 
@@ -17,10 +16,11 @@ const SubmissionCard: React.FC<Props> = ({ submission }) => {
         <ClockCircleOutlined /> Submission Date: {submissionDate}
       </p>
       <a
-        href='https://github.com/cem-gurel47/school-platform/blob/master/src/submission.txt'
-        download
+        href='https://github.com/cem-gurel47/school-platform/blob/1a1f3af12491ca97c9ab01b59f80dbc914da1a2d/src/submission.txt'
+        target='_blank'
+        rel='noreferrer'
       >
-        <Button type='default'>Download Submission</Button>
+        <Button type='default'>Open Submission</Button>
       </a>
     </Card>
   );
