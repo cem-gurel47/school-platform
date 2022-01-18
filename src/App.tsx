@@ -1,10 +1,13 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header, Content } from "./components/Layout";
+import { Spin } from "antd";
 import AuthContext from "./contexts/Auth";
 import Login from "./pages/login/index";
 import IUser from "./models/user";
 import "antd/dist/antd.css";
+
+const HomeworksPage = lazy(() => import("./pages/Homeworks"));
 
 function App() {
   const [user, setUser] = useState<null | IUser>(null);
@@ -24,18 +27,21 @@ function App() {
     <div>
       <Router>
         <AuthContext.Provider value={{ user: user, setUser: setUser }}>
-          <Content>
-            {user ? (
-              <>
-                <Header />
-                <Routes>
-                  <Route path='/home' element={<div>Home Page</div>} />
-                </Routes>
-              </>
-            ) : (
-              <Login />
-            )}
-          </Content>
+          {user ? (
+            <>
+              <Header />
+              <Suspense fallback={<Spin />}>
+                <Content>
+                  <Routes>
+                    <Route path='/home' element={<div>Home Page</div>} />
+                    <Route path='/homeworks' element={<HomeworksPage />} />
+                  </Routes>
+                </Content>
+              </Suspense>
+            </>
+          ) : (
+            <Login />
+          )}
         </AuthContext.Provider>
       </Router>
     </div>

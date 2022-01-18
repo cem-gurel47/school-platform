@@ -3,6 +3,7 @@ import AuthContext from "../../../contexts/Auth";
 import { Layout, Menu } from "antd";
 import styles from "./styles.module.scss";
 import { LogoutOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const { Header } = Layout;
 
@@ -20,7 +21,6 @@ const NAVIGATION_ITEMS = {
 };
 
 const AppHeader: React.FC = () => {
-  //@ts-ignore
   const { setUser, user } = useContext(AuthContext);
 
   const logout = () => {
@@ -35,7 +35,11 @@ const AppHeader: React.FC = () => {
         {
           //@ts-ignore
           NAVIGATION_ITEMS[user.type]?.map(({ route, label }) => {
-            return <Menu.Item key={route}>{label}</Menu.Item>;
+            return (
+              <Link to={route} key={route}>
+                <Menu.Item>{label}</Menu.Item>
+              </Link>
+            );
           })
         }
         <Menu.Item key='logout' onClick={logout} icon={<LogoutOutlined />}>

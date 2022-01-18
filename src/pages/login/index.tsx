@@ -9,7 +9,6 @@ import AuthContext from "../../contexts/Auth/index";
 interface Props {}
 
 const LoginPage: React.FC<Props> = () => {
-  //@ts-ignore
   const { setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
