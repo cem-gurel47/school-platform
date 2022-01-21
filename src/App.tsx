@@ -8,11 +8,22 @@ import IUser from "./models/user";
 import "antd/dist/antd.css";
 
 //Principle
-const HomeworksPage = lazy(() => import("./pages/Principle/Homeworks"));
+const PrincipleHomeworksPage = lazy(
+  () => import("./pages/Principle/Homeworks")
+);
 const TeachersPage = lazy(() => import("./pages/Principle/Teachers"));
 
 //Teacher
 const TeacherHomeworksPage = lazy(() => import("./pages/Teacher/Homeworks"));
+
+//Student
+const StudentHomeworksPage = lazy(() => import("./pages/Student/Homeworks"));
+
+const HomeworksPageList = {
+  Principle: <PrincipleHomeworksPage />,
+  Teacher: <TeacherHomeworksPage />,
+  Student: <StudentHomeworksPage />,
+};
 
 function App() {
   const [user, setUser] = useState<null | IUser>(null);
@@ -23,6 +34,8 @@ function App() {
       setUser(JSON.parse(user));
     }
   }, []);
+
+  console.log(user?.type);
 
   useEffect(() => {
     checkIfUserExists();
@@ -41,13 +54,7 @@ function App() {
                     <Route path='/home' element={<div>Home Page</div>} />
                     <Route
                       path='/homeworks'
-                      element={
-                        user.type === "Principle" ? (
-                          <HomeworksPage />
-                        ) : (
-                          <TeacherHomeworksPage />
-                        )
-                      }
+                      element={HomeworksPageList[user.type]}
                     />
                     <Route path='/teachers' element={<TeachersPage />} />
                   </Routes>

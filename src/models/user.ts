@@ -6,6 +6,7 @@ interface IUser {
   password: string;
   students?: { name: string }[];
   teachingCourse?: "CSI2132" | "CEG3585" | "CSI3504" | "CSI3531";
+  takingCourses?: string[];
 }
 
 export default IUser;

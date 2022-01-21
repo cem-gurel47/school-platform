@@ -13,9 +13,10 @@ const users: IUser[] = [
   {
     id: "s1",
     type: "Student",
-    name: "Student One",
+    name: "John Doe",
     email: "student@one.com",
     password: "student1",
+    takingCourses: ["CSI3531", "CSI2132"],
   },
   {
     id: "t1",
