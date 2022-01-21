@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, lazy, Suspense } from "react";
+import { useState, useCallback, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Header, Content } from "./components/Layout";
 import { Spin } from "antd";
@@ -34,8 +34,6 @@ function App() {
       setUser(JSON.parse(user));
     }
   }, []);
-
-  console.log(user?.type);
 
   useEffect(() => {
     checkIfUserExists();

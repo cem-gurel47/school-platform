@@ -9,11 +9,11 @@ const { Header } = Layout;
 
 const NAVIGATION_ITEMS = {
   Principle: [
-    { route: "/teachers", label: "Teachers" },
     { route: "/homeworks", label: "Homeworks" },
+    { route: "/teachers", label: "Teachers" },
   ],
   Teacher: [{ route: "/homeworks", label: "Homeworks" }],
-  Student: [{ route: "/upload-homework", label: "Upload Homework" }],
+  Student: [{ route: "/homeworks", label: "Homeworks" }],
 };
 
 const AppHeader: React.FC = () => {
